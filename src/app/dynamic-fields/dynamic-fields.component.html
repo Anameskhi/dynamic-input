@@ -1,31 +1,16 @@
 <div class="container">
-    <form [formGroup]="studentForm" action="" (submit)="submit()">
-        <div class="student-info" formArrayName="studentList" *ngFor="let student of studentListArray().controls; let i = index">
+    <form [formGroup]="form" action="" (submit)="submit()">
+        <div class="student-info" formArrayName="list" *ngFor="let list of fieldsArray().controls; let i = index">
             <div  [formGroupName]="i" class="student-info__student">
-                <p>Student</p>
-                <input type="text" name="" id="" placeholder="Name" class="input-style" formControlName= "student_name">
-                <input type="text" name="" id="" placeholder="Class" class="input-style" formControlName="student_class">
-                <input type="text" name="" id="" placeholder="Age" class="input-style" formControlName="student_age">
+                <input type="text" name="" id="" placeholder="AdminId" class="input-style" formControlName= "adminId">
+                <input type="text" name="" id="" placeholder="FlashscoreId" class="input-style" formControlName="flashscoreId">
+                <input type="text" name="" id="" placeholder="EspnId" class="input-style" formControlName="espnId">
                 <input type="checkbox" class="checkbox-style" formControlName="first_checkbox" (change)="handleCheckboxChange(i, 'first_checkbox')">
                 <input type="checkbox" class="checkbox-style" formControlName="second_checkbox" (change)="handleCheckboxChange(i, 'second_checkbox')">
-                <button type="button" *ngIf="studentListArray().length > 1" class="delete" (click)="removeStudent(i)">Delete</button>
+                <button type="button" *ngIf="fieldsArray().length > 1" class="delete" (click)="removeFields(i)">Delete</button>
             </div>
-            <!-- <div [formGroup]="subjectsFormGroup(i)">
-                <div formArrayName="studentSubjectArray" class="student-info__subject" *ngFor="let studentSub of subjectsArray(i).controls; let j = index">
-                    <div [formGroupName]="j" class="subject" >
-                        <p>Subject</p>
-                        <input type="text" id="" name="" placeholder="Subject" formArrayName="subject">
-                        <input type="text" id="" name="" placeholder="Marks" formArrayName="marks">
-                        <button type="button" *ngIf="subjectsArray(i).length > 1" class="delete" (click)="removeNewSubject(i,j)">Delete</button>
-                    </div>
-                  
-               </div>
-           
-            </div>
-    
-             <button type="button" class="add" (click)="addNewSubject(i)">Add Subject</button> -->
         </div>
-        <button type="button" class="add" (click)="addStudent()">Add New Student</button>
+        <button type="button" class="add" (click)="addField()">Add New Field</button>
         <button type="submit" class="submit">Submit</button>
     </form>
 </div>

@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class DynamicFieldService extends BaseService {
 
- 
 
-  createNewStudentList(body: any): Observable<any>{
+
+  createNewList(body: any): Observable<any>{
     return this.post<any>(body)
-    
+
   }
 
   fetchJSON(): Observable<any> {
